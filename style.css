@@ -1,0 +1,100 @@
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
+  color: #e4e4e4;
+  background-color: #1b1f27; /* Retro dark */
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+/* Header with retro glow and typewriter animation */
+.header {
+  background-color: #12151c;
+  color: #00ffae;
+  text-align: center;
+  padding: 6rem 0;
+}
+
+.header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #00ffae;
+  margin: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00ffae;
+  width: 28ch; /* Adjust based on your text length */
+  animation:
+    typewriter 3s steps(28) 1s 1 normal both,
+    blinkCursor 0.75s step-end infinite;
+}
+
+/* Sections */
+.about, .projects, .contact {
+  background: #262c38;
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 174, 0.2);
+}
+
+.about h2, .projects h2, .contact h2 {
+  color: #00ffae;
+  margin-bottom: 1rem;
+}
+
+.projects .project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.project {
+  background: #1e222b;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #ddd;
+  border-left: 4px solid #00ffae;
+}
+
+.footer {
+  background-color: #111;
+  color: #888;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Animations */
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 10px #00ffae, 0 0 20px #00ffae, 0 0 30px #00ffae;
+  }
+  50% {
+    text-shadow: 0 0 20px #00ffaa, 0 0 30px #00ffaa, 0 0 40px #00ffaa;
+  }
+}
+
+@keyframes typewriter {
+  from { width: 0 }
+  to { width: 28ch }
+}
+
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
+}
