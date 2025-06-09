@@ -1,14 +1,15 @@
-  * {
+ /* Reset styles */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Courier New', monospace;
+  font-family: 'JetBrains Mono', 'Fira Mono', 'IBM Plex Mono', 'Source Code Pro', monospace;
   line-height: 1.6;
   color: #e4e4e4;
-  background-color: #1b1f27; /* Retro dark */
+  background-color: #1b1f27;
 }
 
 .container {
@@ -18,10 +19,10 @@ body {
   padding: 2rem 0;
 }
 
-/* Header with retro glow and typewriter animation */
+/* Header with glow and typewriter animation */
 .header {
   background-color: #12151c;
-  color: #00ffae;
+  color: #8ab4f8;
   text-align: center;
   padding: 6rem 0;
 }
@@ -34,12 +35,12 @@ body {
 
 .header p {
   font-size: 1.2rem;
-  color: #00ffae;
+  color: #8ab4f8;
   margin: auto;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 2px solid #00ffae;
-  width: 28ch; /* Adjust based on your text length */
+  border-right: 2px solid #8ab4f8;
+  width: 28ch; /* Adjust based on your intro line */
   animation:
     typewriter 3s steps(28) 1s 1 normal both,
     blinkCursor 0.75s step-end infinite;
@@ -51,11 +52,11 @@ body {
   margin: 2rem 0;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 255, 174, 0.2);
+  box-shadow: 0 0 15px rgba(138, 180, 248, 0.2);
 }
 
 .about h2, .projects h2, .contact h2 {
-  color: #00ffae;
+  color: #8ab4f8;
   margin-bottom: 1rem;
 }
 
@@ -70,7 +71,7 @@ body {
   padding: 1rem;
   border-radius: 8px;
   color: #ddd;
-  border-left: 4px solid #00ffae;
+  border-left: 4px solid #8ab4f8;
 }
 
 .footer {
@@ -80,15 +81,21 @@ body {
   padding: 1rem;
 }
 
-/* Animations */
 @keyframes glowPulse {
   0%, 100% {
-    text-shadow: 0 0 10px #00ffae, 0 0 20px #00ffae, 0 0 30px #00ffae;
+    text-shadow:
+      0 0 4px rgba(138, 180, 248, 0.6),
+      0 0 8px rgba(138, 180, 248, 0.5),
+      0 0 12px rgba(138, 180, 248, 0.4);
   }
   50% {
-    text-shadow: 0 0 20px #00ffaa, 0 0 30px #00ffaa, 0 0 40px #00ffaa;
+    text-shadow:
+      0 0 6px rgba(138, 180, 248, 0.8),
+      0 0 12px rgba(138, 180, 248, 0.6),
+      0 0 16px rgba(138, 180, 248, 0.5);
   }
 }
+
 
 @keyframes typewriter {
   from { width: 0 }
