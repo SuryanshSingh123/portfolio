@@ -8,51 +8,127 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=IBM+Plex+Mono&family=JetBrains+Mono&family=Source+Code+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
+  <nav>
+    <ul class="tabs">
+      <li class="tab active" data-tab="about">About Me</li>
+      <li class="tab" data-tab="projects">Projects</li>
+      <li class="tab" data-tab="music">Music</li>
+      <li class="tab" data-tab="contact">Contact</li>
+    </ul>
+  </nav>
   <header class="header">
     <div class="container">
       <h1>Hi, I'm Suryansh Singh</h1>
-      <p>Game Developer | Designer </p>
+      <p>Game Developer | Designer</p>
     </div>
   </header>
-
-  <section class="about">
+  <section id="about" class="tab-content active">
     <div class="container">
       <h2>About Me</h2>
-      <p>t. I mostly work in game developing and modelling 3d enviornments
-        I'm an indian kid with a laptop and a dream, and i work hard to get i
-      </p>
+      <p>I'm a passionate game developer and 3D environment artist.<br>
+      Mostly self-taught, mostly obsessed with bringing "digital worlds to life" or something like that.<br><br>
+
+      I'm just a kid from India — with a laptop, a dream,<br>
+      and the stubbornness to chase it all the way to the top, or atleast I hope so I get somewhere near.<br><br>
+
+      I spend my nights modelling 3D environments, suffering in a loop of trial and error fixing that one script,<br>
+      testing mechanics, writing even more messy code, and fixing it at 3 AM (still failed lol).<br><br>
+
+      What for?<br>
+      To build something real.<br>
+      Something I can be proud of. An actual game brought from my imagination<br><br>
+
+      I'm currently working on a 3D game — my biggest project so far(well its not like some huge thing but we all start somewhere right?).<br>
+      I'm also preparing for the SAT, with hopes of making it to MIT, a lot of hopes to be honest.<br><br>
+
+      It's a long road, and a tiring one infact.<br>
+      But I've got time, passion, and some caffeine.<br><br>
+
+      Let's see how far I can go.</p>
     </div>
   </section>
 
-  <section class="projects">
+  <section id="projects" class="tab-content">
     <div class="container">
       <h2>Projects</h2>
       <div class="project-list">
         <div class="project">
           <h3>Project One</h3>
-          <p>a 2d hack and slash basic project (lost tho)</p>
+          <p>A portfolio I made when I was around 10(it was worse than this one)</p>
+        </div>
+        <br><br>
+        <div class="project">
+          <h3>Project Two, and many more</h3>
+          <p>A collection of old repositories on github I made when I was 11, mostly containg html css and js(its not that useful just basic stuff and normal ideas)</p>
+        </div>
+        <br><br>
+        <div class="project">
+          <h3>Project Three</h3>
+          <p>Not really a "project", but some C files I started with in CS50 by harvard when I was 13(just a part of the course is on my github)</p>
+        </div>
+        <br><br>
+        <div class="project">
+          <h3>Project Four</h3>
+          <p>A working download manager in Java I made when I was 13, while referring to a book that taught Java(Of course no one would use my manager and it had been replicated 100 times, but it was still an accomplishment for me)</p>
+        </div>
+        <br><br>
+        <div class="project">
+          <h3>Project Five</h3>
+          <p>Mostly lost game projects, both 2d and 3d, but it was all tutorial garbage. I'm making one on my own now, so that's the big project 5</p>
         </div>
         <div class="project">
-          <h3>Project Two</h3>
-          <p>currently building a 3d game</p>
+          <h3>Honorable Mention</h3>
+          <p>This webpage itself is one of my best works(yes, thats how bad I usually am)</p>
         </div>
-        <!-- Add more projects as needed -->
       </div>
     </div>
   </section>
 
-  <section class="contact">
+<section id="music" class="tab-content">
+  <div class="container">
+    <h2>Music</h2>
+
+    <p>Here are a few tracks I vibe to while working on projects:</p>
+    <div class="spotify-embed">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0FcS0Cpz3tK1DLXIzr6iL2?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <br><br>
+    <div class="spotify-embed">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6y87Q8nkhHP2YqowavLdPA?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <br><br>
+    <div class="spotify-embed">
+     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0G7OpVtCu40XSaISy0PvpD?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+  <section id="contact" class="tab-content">
     <div class="container">
       <h2>Contact Me</h2>
       <p>Email: technosfan14@gmail.com</p>
       <p>Discord: 01_zandatsu</p>
     </div>
   </section>
-
   <footer class="footer">
     <div class="container">
       <p>&copy; 2025 Suryansh Singh. All rights reserved.</p>
     </div>
   </footer>
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+  </script>
 </body>
-</html>
+</html> 
+
