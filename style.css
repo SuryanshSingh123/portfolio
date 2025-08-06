@@ -72,7 +72,8 @@ body {
   margin-bottom: 1rem;
 }
 
-.projects .project-list {
+.projects .project-list,
+.log .logs{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
@@ -174,3 +175,4 @@ nav {
     transform: translateY(0);
   }
 }
+
