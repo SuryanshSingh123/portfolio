@@ -133,41 +133,7 @@
     });
   });
   </script>
-<script>
-const words = [
-  "games", "", "curiousity", "trial and error",
-  "dread", "anime", "swords", "MIT", "cooking",
-  "computers", "osaka", "laptops", "passion",
-  "aspirations", "dreams", "life", "cringe?", "burnouts", "friends."
-];
-
-function createWord() {
-  const container = document.querySelector('.background-words');
-  const word = document.createElement('span');
-  word.textContent = words[Math.floor(Math.random() * words.length)];
-  const contentWidth = 900; 
-  const gutterWidth = (window.innerWidth - contentWidth) / 2 - 50; 
-  const side = Math.random() < 0.5 ? "left" : "right";
-  const topPos = Math.random() * 100;
-
-  if (side === "left") {
-    word.style.left = Math.random() * gutterWidth + "px";
-    word.classList.add("fadeGlowLeft");
-  } else {
-    word.style.left = (window.innerWidth - gutterWidth + Math.random() * 50) + "px";
-    word.classList.add("fadeGlowRight");
-  }
-
-  word.style.top = topPos + "%";
-  container.appendChild(word);
-
-  setTimeout(() => {
-    word.remove();
-  }, 4200);
-}
-
-setInterval(createWord, 800);
-</script>
 </body>
 
 </html> 
+
