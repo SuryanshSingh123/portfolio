@@ -6,18 +6,6 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;                /* smooth anchor jumps */
-  scroll-padding-top: 84px;               /* account for fixed nav */
-  scrollbar-gutter: stable both-edges;    /* avoid layout shift when scrollbar shows */
-}
-body {
-  overscroll-behavior-y: none;            /* prevent scroll chaining bounce */
-  touch-action: manipulation;             /* faster taps/gestures on mobile */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 body {
   font-family: 'JetBrains Mono', monospace;
   font-size: x-large;
@@ -26,64 +14,21 @@ body {
   position: relative;
   overflow-x: hidden;
   z-index: 0;
-
-  /* remove page-wide halftone */
-  background-image: none;
 }
-
-/* Header: apply halftone+light gradient only here (more visible) */
-.header {
-  position: relative;
-  overflow: hidden;
-  color: #ffffff;
-  text-align: center;
-  padding: 6rem 0;
-
-  background-image:
-    linear-gradient(to bottom, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0.12) 35%, rgba(255,255,255,0.05) 65%, rgba(255,255,255,0) 100%),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18'><circle cx='1.2' cy='1.2' r='1.2' fill='%23ffffff' fill-opacity='0.10'/></svg>");
-  background-size: 100% 100%, 18px 18px;
-  background-repeat: no-repeat, repeat;
-  background-position: top left, top left;
-}
-
-/* Performance baseline: disable page-wide animated bg */
-body::before { content: none; }
-
-/* Header: no heavy background, keep structure */
-.header {
-  position: relative;
-  overflow: hidden;
-  /* background: none;  removed to keep halftone */
-  color: #ffffff;
-  text-align: center;
-  padding: 6rem 0;
-}
-
-/* Static, lightweight glass sheet behind header content */
-.header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  backdrop-filter: blur(4px) saturate(130%);
-  -webkit-backdrop-filter: blur(4px) saturate(130%);
-  pointer-events: none;
-  z-index: 0;
-}
-.header::after { content: none; }
-
-/* Ensure header content stays above glass */
-.header .container { position: relative; z-index: 1; }
-
 .container {
   max-width: 900px;
   margin: 0 auto;    
   padding: 0 20px;
   text-align: center;
-  font-size: 1.5rem;
+}
+.header {
+  background: url('b&ww.gif') repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff;
+  text-align: center;
+  padding: 6rem 0;
 }
 
 .header h1 {
@@ -103,19 +48,6 @@ body::before { content: none; }
   animation:
     typewriter 3s steps(28) 1s 1 normal both,
     blinkCursor 0.75s step-end infinite;
-}
-
-/* Header glass panel (reduced blur for sharper background) */
-.header .container {
-  position: relative;
-  z-index: 1; /* above the video */
-  background: rgba(255, 255, 255, 0.04); /* lighter glass for more detail */
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 16px;
-  padding: 2rem 1.5rem;
-  backdrop-filter: blur(6px) saturate(140%);
-  -webkit-backdrop-filter: blur(6px) saturate(140%);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .about,
@@ -147,14 +79,11 @@ body::before { content: none; }
   text-align: center;
 }
 
-/* Extra spacing between the 'Projects' title and the cards */
-#projects .container > h2 { margin-bottom: 2rem !important; }
-
-.project-list,
-.log-list {
+.projects .project-list,
+.log .logs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.25rem; /* space between project cards */
+  gap: 1.5rem;
 }
 
 .project,
@@ -164,13 +93,6 @@ body::before { content: none; }
   border-radius: 8px;
   color: #cccccc;
   border-left: 4px solid #ffffff;
-}
-
-.project h3 {
-  margin: 0 0 0.5rem;
-}
-.project p {
-  margin: 0;
 }
 
 .footer {
@@ -211,17 +133,6 @@ nav {
   z-index: 1000;
 }
 
-/* ===== Scroll smoothness & compositor tweaks ===== */
-nav,
-.header,
-.header::before,
-.background-words,
-.footer {
-  will-change: transform, opacity;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
 .tabs {
   display: flex;
   justify-content: center;
@@ -248,12 +159,11 @@ nav,
 .tab-content {
   display: none;
   padding: 140px 30px 80px;
-  opacity: 0; /* prepare for fade-in */
+  animation: fadeIn 0.5s ease-in-out;
 }
+
 .tab-content.active {
   display: block;
-  animation: pageFadeUp 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  will-change: opacity, transform;
 }
 
 @keyframes fadeIn {
@@ -267,489 +177,7 @@ nav,
   }
 }
 
-@keyframes fadeInFast {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes pageFadeUp {
-  from { opacity: 0; transform: translateY(12px) scale(0.995); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* Stagger inner elements for a refined entrance */
-.tab-content.active .container > * {
-  animation: itemFadeUp 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: 120ms;
-  will-change: opacity, transform;
-}
-@keyframes itemFadeUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Stagger lists/cards */
-.tab-content.active .project-list .project,
-.tab-content.active .log-list .log,
-.tab-content.active .spotify-embed,
-.tab-content.active .audio-card { animation: itemFadeUp 600ms cubic-bezier(0.22, 1, 0.36, 1) both; }
-.tab-content.active .project-list .project:nth-child(1),
-.tab-content.active .log-list .log:nth-child(1),
-.tab-content.active .audio-card:nth-child(1) { animation-delay: 120ms; }
-.tab-content.active .project-list .project:nth-child(2),
-.tab-content.active .log-list .log:nth-child(2),
-.tab-content.active .audio-card:nth-child(2) { animation-delay: 200ms; }
-.tab-content.active .project-list .project:nth-child(3),
-.tab-content.active .log-list .log:nth-child(3),
-.tab-content.active .audio-card:nth-child(3) { animation-delay: 280ms; }
-.tab-content.active .project-list .project:nth-child(4),
-.tab-content.active .log-list .log:nth-child(4) { animation-delay: 360ms; }
-.tab-content.active .project-list .project:nth-child(5),
-.tab-content.active .log-list .log:nth-child(5) { animation-delay: 440ms; }
-.tab-content.active .project-list .project:nth-child(6),
-.tab-content.active .log-list .log:nth-child(6) { animation-delay: 520ms; }
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .tab-content.active,
-  .tab-content.active .container > *,
-  .tab-content.active .project-list .project,
-  .tab-content.active .log-list .log,
-  .tab-content.active .spotify-embed,
-  .tab-content.active .audio-card { animation: none !important; }
-}
-
 img {
   filter: grayscale(100%);
-}
-
-/* ===== Glassmorphism Enhancements ===== */
-/* Header glass panel */
-.header .container {
-  background: rgba(255, 255, 255, 0.04); /* keep consistent with header glass above */
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 16px;
-  padding: 2rem 1.5rem;
-  backdrop-filter: blur(6px) saturate(140%);
-  -webkit-backdrop-filter: blur(6px) saturate(140%);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-}
-
-/* Section glass cards */
-.about,
-.projects,
-.contact,
-.logs,
-.music {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(12px) saturate(140%);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
-}
-
-/* Project/Log glass cards */
-.project,
-.log {
-  background: rgba(255, 255, 255, 0.05);
-  border-left: none;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 14px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-}
-.project:hover,
-.log:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-}
-
-/* Glass nav bar */
-nav {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(12px) saturate(140%);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-/* Glass tabs */
-.tab {
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: color 0.3s, background 0.3s, box-shadow 0.3s, border-color 0.3s, transform 0.2s;
-}
-.tab:hover,
-.tab.active {
-  color: #ffffff;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-}
-
-/* Spotify embed wrapper */
-.spotify-embed {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  padding: 0.75rem;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
-  margin: 0.75rem 0;
-}
-
-/* Glass footer */
-.footer {
-  background-color: rgba(255, 255, 255, 0.04);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-/* Glass for tab pages (section containers) */
-#about .container,
-#projects .container,
-#music .container,
-#logs .container,
-#contact .container {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  padding: 2rem;
-  backdrop-filter: blur(12px) saturate(140%);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-}
-
-/* === Glassmorphic Local Audio Player === */
-.audio-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  row-gap: 1rem;
-}
-.audio-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  padding: 1rem;
-  backdrop-filter: blur(10px) saturate(140%);
-  -webkit-backdrop-filter: blur(10px) saturate(140%);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-}
-.audio-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); box-shadow: 0 16px 32px rgba(0,0,0,0.45); }
-.audio-card.unavailable { opacity: 0.6; border-color: rgba(255, 120, 120, 0.2); }
-
-.audio-card .controls { display: flex; align-items: center; gap: 1rem; }
-.audio-card .play-btn {
-  position: relative;
-  width: 42px; height: 42px; border-radius: 999px;
-  display: inline-flex; align-items: center; justify-content: center; /* inline-flex for centering */
-  color: #fff; font-size: 0; line-height: 0;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
-  transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  cursor: pointer;
-}
-
-/* REMOVE old masked pseudo-element icons entirely */
-.audio-card .play-btn::before,
-.audio-card .play-btn.pause::before { content: none !important; display: none !important; -webkit-mask: none !important; mask: none !important; clip-path: none !important; background: none !important; border: 0 !important; }
-
-/* Center and toggle inline SVG icons */
-.audio-card .play-btn > svg.icon { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; fill: currentColor; pointer-events: none; display: block; }
-.audio-card .play-btn > .icon-pause { display: none; }
-.audio-card .play-btn.pause > .icon-play { display: none; }
-.audio-card .play-btn.pause > .icon-pause { display: block; }
-
-.audio-card .cover-wrap {
-  width: 56px; height: 56px; border-radius: 10px; overflow: hidden; flex: 0 0 56px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
-  display: grid; place-items: center;
-}
-.audio-card .cover { width: 100%; height: 100%; object-fit: cover; display: none; }
-.audio-card .cover-fallback {
-  color: #ffffff; font-weight: 700; font-size: 0.95rem;
-  letter-spacing: 1px; opacity: 0.9;
-}
-.audio-card .subline { color: #bdbdbd; font-size: 0.9rem; margin-top: 2px; }
-
-.audio-card .meta { flex: 1; text-align: left; }
-.audio-card .title { color: #fff; font-weight: 600; margin-bottom: 2px; }
-.audio-card .time { color: #bbbbbb; font-size: 0.9rem; }
-
-.audio-card .seek { width: 100%; margin-top: 0.75rem; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.08); outline: none; appearance: none; -webkit-appearance: none; accent-color: #ffffff; }
-.audio-card .seek::-webkit-slider-runnable-track { height: 8px !important; border-radius: 999px; background: rgba(255,255,255,0.12); }
-.audio-card .seek::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; margin-top: calc((8px - 14px)/2) !important; border-radius: 50%; background: #ffffff; border: 2px solid rgba(255,255,255,0.22); box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
-.audio-card .seek::-moz-range-track { height: 8px !important; border-radius: 999px; background: rgba(255,255,255,0.12); }
-.audio-card .seek::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #ffffff; border: 2px solid rgba(255,255,255,0.22); box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
-
-/* Include audio cards in tab entrance animation */
-.tab-content.active .audio-card { animation: itemFadeUp 600ms cubic-bezier(0.22, 1, 0.36, 1) both; }
-#music .audio-card:nth-child(1) { animation-delay: 120ms; }
-#music .audio-card:nth-child(2) { animation-delay: 200ms; }
-#music .audio-card:nth-child(3) { animation-delay: 280ms; }
-
-/* Make main a positioned, clipping container for background art */
-#main { position: relative; z-index: 0; overflow: hidden; }
-
-/* Limit abstract background to main only (not behind header dots) */
-.background-words {
-  position: absolute; /* was fixed */
-  inset: 0;
-  z-index: 0; /* below sections (z=1) */
-  pointer-events: none;
-}
-
-/* Prevent bleed beyond main; keep subtle image + fallback */
-.background-words::before {
-  content: "";
-  position: absolute;
-  inset: 0; /* was -4% */
-  background-image:
-    url('./assets/subtle-bg.png'),
-    url('./subtle-bg.png'),
-    repeating-linear-gradient(135deg,
-      rgba(255,255,255,0.035) 0px,
-      rgba(255,255,255,0.035) 1px,
-      transparent 1px,
-      transparent 22px
-    );
-  background-position: center, center, center;
-  background-size: cover, cover, auto;
-  background-repeat: no-repeat, no-repeat, repeat;
-  background-blend-mode: screen, screen, normal; /* show only white parts, ignore black */
-  opacity: 0.08; /* still subtle */
-  filter: contrast(0.92) brightness(0.98);
-}
-
-@media (prefers-color-scheme: light) {
-  .background-words::before { opacity: 0.035; }
-}
-
-/* === Restore original Projects layout (multi-column grid) === */
-#projects .project-list {
-  display: grid !important; /* keep grid but revert to responsive columns */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
-  column-gap: 1.25rem !important;
-  row-gap: 1.25rem !important;
-}
-#projects .project-list .project {
-  min-height: unset !important;
-  padding: 1rem !important;
-}
-#projects .project-list .project + .project { margin-top: 0 !important; }
-/* === Projects: stacked horizontal rectangles (single column) === */
-#projects .project-list {
-  display: grid !important;
-  grid-template-columns: 1fr !important;
-  row-gap: 1.25rem !important;
-  column-gap: 0 !important;
-}
-#projects .project-list .project {
-  width: 100% !important;
-  min-height: 160px !important; /* horizontal rectangle feel */
-  padding: 1.25rem !important;
-}
-
-/* === Seamless blend between header and main backgrounds === */
-/* Feather header bottom into black */
-.header::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 140px;
-  background: linear-gradient(to bottom,
-    rgba(0,0,0,0) 0%,
-    rgba(0,0,0,0.28) 55%,
-    rgba(0,0,0,0.6) 100%
-  );
-  pointer-events: none;
-  z-index: 0; /* stays behind header content */
-}
-
-/* Feather-in the main background from the top */
-#main::before {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: 0;
-  height: 160px;
-  background: linear-gradient(to bottom,
-    rgba(0,0,0,1) 0%,
-    rgba(0,0,0,0.6) 40%,
-    rgba(0,0,0,0) 100%
-  );
-  pointer-events: none;
-  z-index: 0; /* above .background-words, below sections */
-}
-
-/* Ensure abstract image sits under the blend overlay */
-#main .background-words { z-index: -1 !important; }
-/* Spacing below music intro text */
-#music .container > p { margin-bottom: 1.25rem; }
-/* === Fix play/pause icon rendering: use centered child span instead of masks === */
-#music .audio-card .controls .play-btn {
-  position: relative; /* anchor for centered icon */
-}
-/* Hard override: never render pseudo-element icon */
-#music .audio-card .play-btn::before { content: none !important; display: none !important; -webkit-mask: none !important; mask: none !important; clip-path: none !important; background: none !important; border: 0 !important; }
-
-/* Ensure inline SVG icons are centered and mutually exclusive */
-#music .audio-card .play-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; }
-#music .audio-card .play-btn > svg.icon {
-  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-  width: 16px; height: 16px; fill: currentColor; pointer-events: none; display: block !important;
-}
-#music .audio-card .play-btn > .icon-pause { display: none !important; }
-#music .audio-card .play-btn.pause > .icon-play { display: none !important; }
-#music .audio-card .play-btn.pause > .icon-pause { display: block !important; }
-/* === FINAL: Music play button icon fix === */
-#music .audio-card .play-btn::before,
-#music .audio-card .play-btn.pause::before {
-  content: none !important;
-  display: none !important;
-  -webkit-mask: none !important;
-  mask: none !important;
-  clip-path: none !important;
-  background: none !important;
-  border: 0 !important;
-}
-#music .audio-card .play-btn {
-  position: relative !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-#music .audio-card .play-btn > svg.icon {
-  position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 18px !important;
-  height: 18px !important;
-  fill: currentColor !important;
-  pointer-events: none !important;
-  display: block !important;
-}
-#music .audio-card .play-btn > .icon-pause { display: none !important; }
-#music .audio-card .play-btn.pause > .icon-play { display: none !important; }
-#music .audio-card .play-btn.pause > .icon-pause { display: block !important; }
-/* Album covers black & white (but not all images site-wide */
-#music .audio-card .cover { filter: grayscale(100%) contrast(1.05) brightness(0.98); }
-#music .audio-card .cover-wrap { overflow: hidden; }
-#music .audio-card .cover-wrap::after { /* subtle inner border for glass look */
-  content: ""; position: absolute; inset: 0; border-radius: 10px; pointer-events: none;
-}
-
-/* === Music: micro-interactions & polish === */
-/* Active card glow while playing */
-#music .audio-card.playing {
-  background: rgba(255,255,255,0.09);
-  border-color: rgba(255,255,255,0.22);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06) inset;
-}
-
-/* Parallax-ish tilt on cover */
-#music .audio-card { position: relative; overflow: hidden; }
-#music .audio-card .cover-wrap {
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 300ms ease, box-shadow 300ms ease;
-  will-change: transform;
-}
-#music .audio-card .cover-wrap:hover { transform: perspective(600px) rotateX(2deg) rotateY(2deg) translateZ(2px); box-shadow: 0 6px 16px rgba(0,0,0,0.35); }
-
-/* Play button micro-interactions: ripple + breathing when playing */
-#music .audio-card .play-btn { transition: transform 160ms ease, background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
-#music .audio-card .play-btn:active { transform: scale(0.92); }
-#music .audio-card .play-btn.ripple::after {
-  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.25) 32%, rgba(255,255,255,0) 60%);
-  transform: scale(0); opacity: 0.85; animation: ripple 450ms ease-out forwards;
-}
-@keyframes ripple { to { transform: scale(2.4); opacity: 0; } }
-#music .audio-card.playing .play-btn { animation: breathe 2.6s ease-in-out infinite; box-shadow: 0 0 0 0 rgba(255,255,255,0.16), 0 6px 14px rgba(0,0,0,0.35); }
-@keyframes breathe {
-  0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.16), 0 6px 14px rgba(0,0,0,0.35); }
-  50% { box-shadow: 0 0 0 8px rgba(255,255,255,0.06), 0 8px 18px rgba(0,0,0,0.45); }
-}
-
-/* Tiny EQ bars next to title */
-#music .audio-card .meta .row { display: flex; align-items: center; gap: 8px; }
-#music .audio-card .eq { display: inline-flex; align-items: flex-end; gap: 3px; height: 12px; }
-#music .audio-card .eq span { width: 3px; height: 4px; background: rgba(255,255,255,0.72); border-radius: 1px; opacity: 0.7; transform-origin: bottom; }
-#music .audio-card.playing .eq span:nth-child(1) { animation: eqBar 850ms ease-in-out infinite; }
-#music .audio-card.playing .eq span:nth-child(2) { animation: eqBar 850ms ease-in-out 120ms infinite; }
-#music .audio-card.playing .eq span:nth-child(3) { animation: eqBar 850ms ease-in-out 240ms infinite; }
-@keyframes eqBar { 0%,100% { height: 4px; opacity: 0.7; } 50% { height: 12px; opacity: 1; } }
-
-/* Seek bar: progress + buffered polish and thumb halo */
-#music .audio-card .seek { position: relative; --progress: 0%; --buffered: 0%;
-  background:
-    linear-gradient(to right,
-      rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.95) var(--progress),
-      rgba(255,255,255,0.18) var(--progress), rgba(255,255,255,0.18) 100%
-    ),
-    linear-gradient(to right,
-      rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.25) var(--buffered),
-      rgba(255,255,255,0.08) var(--buffered), rgba(255,255,255,0.08) 100%
-    );
-}
-#music .audio-card .seek::-webkit-slider-runnable-track { background: transparent; }
-#music .audio-card .seek::-moz-range-track { background: transparent; }
-#music .audio-card .seek::-webkit-slider-thumb { box-shadow: 0 0 0 6px rgba(255,255,255,0.12); transition: box-shadow 0.2s ease, transform 0.15s ease; }
-#music .audio-card .seek:active::-webkit-slider-thumb { box-shadow: 0 0 0 8px rgba(255,255,255,0.18); transform: scale(1.05); }
-#music .audio-card .seek::-moz-range-thumb { box-shadow: 0 0 0 6px rgba(255,255,255,0.12); transition: box-shadow 0.2s ease, transform 0.15s ease; }
-#music .audio-card .seek:active::-moz-range-thumb { box-shadow: 0 0 0 8px rgba(255,255,255,0.18); transform: scale(1.05); }
-
-/* === Seek bar alignment finalization (cross-browser) === */
-#music .audio-card .seek {
-  --track-height: 8px;
-  --thumb-size: 14px;
-  height: var(--thumb-size) !important; /* bigger hit area; centers thumb */
-  background-position: center, center;  /* center both gradients vertically */
-  background-repeat: no-repeat;
-  background-size: 100% var(--track-height), 100% var(--track-height);
-}
-#music .audio-card .seek::-webkit-slider-runnable-track { height: var(--track-height) !important; }
-#music .audio-card .seek::-moz-range-track { height: var(--track-height) !important; }
-#music .audio-card .seek::-webkit-slider-thumb {
-  margin-top: calc((var(--track-height) - var(--thumb-size)) / 2) !important; /* center over bar */
-}
-
-/* Time colon subtle blink while playing */
-#music .audio-card .current .colon { display: inline-block; }
-#music .audio-card.playing .current .colon { animation: blinkTime 1.25s steps(1, end) infinite; opacity: 1; }
-@keyframes blinkTime { 50% { opacity: 0.3; } }
-
-/* Highlight sweep on hover */
-#music .audio-card::after {
-  content: ""; position: absolute; top: -150%; left: -50%; width: 200%; height: 300%;
-  background: linear-gradient(120deg, transparent 45%, rgba(255,255,255,0.12) 50%, transparent 55%);
-  transform: translateX(-120%); opacity: 0; pointer-events: none;
-}
-#music .audio-card:hover::after { opacity: 1; animation: sheen 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-@keyframes sheen { to { transform: translateX(120%); } }
-
-/* Respect reduced motion for all added animations */
-@media (prefers-reduced-motion: reduce) {
-  #music .audio-card.playing .play-btn,
-  #music .audio-card .play-btn.ripple::after,
-  #music .audio-card.playing .eq span,
-  #music .audio-card:hover::after,
-  #music .audio-card.playing .current .colon { animation: none !important; }
-  #music .audio-card .cover-wrap,
-  #music .audio-card .play-btn { transition: none !important; }
 }
 

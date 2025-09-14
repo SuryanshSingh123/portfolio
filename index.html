@@ -6,9 +6,6 @@
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=IBM+Plex+Mono&family=JetBrains+Mono&family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
-  
-  <!-- Removed multiple conflicting inline style blocks. All button/icon styling now lives in style.css. -->
 </head>
 <body>
   <nav>
@@ -31,6 +28,7 @@
   <section id="about" class="tab-content active">
     <div class="container">
       <h2>About Me</h2>
+      <br>
       <p>I'm a 10th grader from India, learning game development with some experience in basic programming and making 3d environments.
       Mostly self-taught, mostly full of tutorial hells.
       Some languages I know (just on surface level) are Python, C, C++, Java, HTML, CSS, JS, and most recently, GD script.
@@ -39,7 +37,7 @@
       Aside from technology, I have some other interests like piano, or cooking as well.
       The college I'm aiming for is MIT, something that is definitely going to be hard.
       On that path, I am preparing for the SAT currently.
-      A lot of hopes and dreams for my aspirations and (hopefully), I'll make it.
+      A lot of hopes and dreams for my aspirations and (hopefully),<br> I'll make it.
       </p>
     </div>
   </section>
@@ -49,33 +47,32 @@
       <h2>Projects</h2>
       <div class="project-list">
         <div class="project">
-          <h3>Project 1</h3>
-          <p>A portfolio I made when I was around 10.</p>
+          <h3>Project One</h3>
+          <p>A portfolio I made when I was around 10(it was worse than this one)</p>
         </div>
-        
+        <br><br>
         <div class="project">
-          <h3>Project 2, and many more</h3>
-          <p>A collection of old repositories on github I made when I was 11, mostly containing html, css and js (its not that useful just basic stuff and normal ideas)</p>
+          <h3>Project Two, and many more</h3>
+          <p>A collection of old repositories on github I made when I was 11, mostly containg html css and js(its not that useful just basic stuff and normal ideas)</p>
         </div>
-       
+        <br><br>
         <div class="project">
-          <h3>Project 3</h3>
-          <p>Not really a "project", but some C files I started with in CS50 by Harvard when I was 13 (A part of the course is on my github)</p>
+          <h3>Project Three</h3>
+          <p>Not really a "project", but some C files I started with in CS50 by harvard when I was 13(just a part of the course is on my github)</p>
         </div>
-        
+        <br><br>
         <div class="project">
-          <h3>Project 4</h3>
+          <h3>Project Four</h3>
           <p>A working download manager in Java I made when I was 13, while referring to a book that taught Java(Of course no one would use my manager and it had been replicated 100 times, but it was still an accomplishment for me)</p>
         </div>
-        
+        <br><br>
         <div class="project">
-          <h3>Project 5</h3>
+          <h3>Project Five</h3>
           <p>Mostly lost game projects, both 2d and 3d, but it was all tutorial garbage. I'm making one on my own now, so that's the big project 5</p>
         </div>
-        
         <div class="project">
           <h3>Honorable Mention</h3>
-          <p>This webpage itself is one of my best works.</p>
+          <p>This webpage itself is one of my best works(yes, thats how bad I usually am)</p>
         </div>
       </div>
     </div>
@@ -84,11 +81,25 @@
 <section id="music" class="tab-content">
   <div class="container">
     <h2>Music</h2>
+
     <p>Here are a few tracks I vibe to while working on projects:</p>
+<<<<<<< HEAD
     <div class="audio-list">
       <div class="audio-card" data-src="music/burythelight.mp3" data-title="Bury The Light" data-artist="Casey Edwards" data-cover="musicovers/btl.jpg"></div>
       <div class="audio-card" data-src="music/devilsnevercry.mp3" data-title="Devils Never Cry" data-artist="Tyson Yen" data-cover="musicovers/dnc.jpg"></div>
       <div class="audio-card" data-src="music/theonlythingiknowisrealmaniacmix.mp3" data-title="The Only Thing I Know For Real - Maniac Agenda Mix" data-artist="Tyson Yen" data-cover="musicovers/totikfrmam.jpg"></div>
+=======
+    <div class="spotify-embed">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0FcS0Cpz3tK1DLXIzr6iL2?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <br><br>
+    <div class="spotify-embed">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6y87Q8nkhHP2YqowavLdPA?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <br><br>
+    <div class="spotify-embed">
+     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0G7OpVtCu40XSaISy0PvpD?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+>>>>>>> parent of 7856874 (portfolio: revamp)
     </div>
   </div>
 </section>
@@ -108,8 +119,8 @@
       <h2>Contact Me</h2>
       <p>Discord: 01_zandatsu</p>
     </div>
-  </section>
   </main>
+  </section>
   <footer class="footer">
     <div class="container">
       <p>&copy; 2025 Suryansh Singh. All rights reserved.</p>
@@ -128,205 +139,10 @@
       document.getElementById(tab.dataset.tab).classList.add('active');
     });
   });
-
-  // Custom audio players for local music folder with cover + metadata
-  (function initAudioPlayers(){
-    const cards = document.querySelectorAll('#music .audio-card');
-    if (!cards.length) return;
-    let currentAudio = null;
-
-    const fmt = (s) => {
-      if (!isFinite(s)) return '0:00';
-      const m = Math.floor(s / 60);
-      const sec = Math.floor(s % 60).toString().padStart(2, '0');
-      return `${m}:${sec}`;
-    };
-    const initials = (str) => {
-      if (!str) return '♪';
-      const parts = str.replace(/[_-]+/g, ' ').trim().split(/\s+/).slice(0, 2);
-      return parts.map(s => s[0]?.toUpperCase() || '').join('') || '♪';
-    };
-
-    cards.forEach(card => {
-      const src = card.getAttribute('data-src');
-      let title = card.getAttribute('data-title') || (src ? src.split('/').pop() : 'Track');
-      let artist = card.getAttribute('data-artist') || '';
-
-      card.innerHTML = `
-        <div class="controls">
-          <div class="cover-wrap">
-            <img class="cover" alt="" loading="lazy" />
-            <div class="cover-fallback">${initials(title)}</div>
-          </div>
-          <button class="play-btn" aria-label="Play">
-            <svg class="icon" viewBox="0 0 24 24" width="20" height="20" focusable="false" aria-hidden="true">
-              <path class="icon-path" fill="currentColor" d="M8 5v14l11-7z"/>
-            </svg>
-          </button>
-          <div class="meta">
-            <div class="row">
-              <div class="title">${title}</div>
-              <div class="eq" aria-hidden="true"><span></span><span></span><span></span></div>
-            </div>
-            <div class="subline"><span class="artist">${artist || 'Unknown Artist'}</span> • <span class="time"><span class="current"><span class="mm">0</span><span class="colon">:</span><span class="ss">00</span></span> / <span class="duration">0:00</span></span></div>
-          </div>
-        </div>
-        <div class="seek-wrap">
-          <div class="seek-track"><div class="seek-buffered"></div><div class="seek-progress"></div></div>
-          <input class="seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek">
-        </div>
-        <audio preload="metadata" src="${src || ''}"></audio>
-      `;
-
-      const audio = card.querySelector('audio');
-      const btn = card.querySelector('.play-btn');
-      const iconPath = btn.querySelector('.icon-path');
-      const PLAY_PATH = 'M8 5v14l11-7z';
-      const PAUSE_PATH = 'M6 4h4v16H6zM14 4h4v16h-4z';
-      const seek = card.querySelector('.seek');
-      const seekWrap = card.querySelector('.seek-wrap');
-      const prog = seekWrap.querySelector('.seek-progress');
-      const buf = seekWrap.querySelector('.seek-buffered');
-      const curWrap = card.querySelector('.current');
-      const curMm = curWrap.querySelector('.mm');
-      const curSs = curWrap.querySelector('.ss');
-      const dur = card.querySelector('.duration');
-      const titleEl = card.querySelector('.title');
-      const artistEl = card.querySelector('.artist');
-      const coverImg = card.querySelector('.cover');
-      const coverFallback = card.querySelector('.cover-fallback');
-
-      // Load duration
-      audio.addEventListener('loadedmetadata', () => {
-        dur.textContent = fmt(audio.duration);
-        prog.style.width = '0%';
-        buf.style.width = '0%';
-      });
-      audio.addEventListener('progress', () => {
-        if (!audio.duration) return;
-        let bufferedPct = 0;
-        try {
-          if (audio.buffered && audio.buffered.length) {
-            bufferedPct = (audio.buffered.end(audio.buffered.length - 1) / audio.duration) * 100;
-          }
-        } catch(_) {}
-        buf.style.width = bufferedPct.toFixed(2) + '%';
-      });
-      audio.addEventListener('timeupdate', () => {
-        const t = audio.currentTime;
-        curMm.textContent = Math.floor(t / 60);
-        curSs.textContent = Math.floor(t % 60).toString().padStart(2, '0');
-        if (audio.duration) {
-          const pct = (t / audio.duration) * 100;
-          seek.value = pct;
-          prog.style.width = pct.toFixed(2) + '%';
-        }
-      });
-      audio.addEventListener('ended', () => {
-        btn.classList.remove('pause');
-        iconPath.setAttribute('d', PLAY_PATH);
-        btn.setAttribute('aria-label', 'Play');
-        seek.value = 0;
-        prog.style.width = '0%';
-        card.classList.remove('playing');
-      });
-
-      // Play/Pause with single-active behavior + ripple
-      btn.addEventListener('click', () => {
-        // ripple micro-interaction
-        btn.classList.remove('ripple');
-        void btn.offsetWidth; // reflow to restart animation
-        btn.classList.add('ripple');
-
-        if (!audio.src) return;
-        if (currentAudio && currentAudio !== audio) {
-          currentAudio.pause();
-          const otherCard = currentAudio.closest('.audio-card');
-          const otherBtn = otherCard?.querySelector('.play-btn');
-          if (otherBtn) {
-            otherBtn.classList.remove('pause');
-            const otherIcon = otherBtn.querySelector('.icon-path');
-            if (otherIcon) otherIcon.setAttribute('d', PLAY_PATH);
-            otherBtn.setAttribute('aria-label', 'Play');
-          }
-          if (otherCard) otherCard.classList.remove('playing');
-        }
-        if (audio.paused) {
-          audio.play();
-          btn.classList.add('pause');
-          iconPath.setAttribute('d', PAUSE_PATH);
-          btn.setAttribute('aria-label', 'Pause');
-          currentAudio = audio;
-          card.classList.add('playing');
-        } else {
-          audio.pause();
-          btn.classList.remove('pause');
-          iconPath.setAttribute('d', PLAY_PATH);
-          btn.setAttribute('aria-label', 'Play');
-          card.classList.remove('playing');
-        }
-      });
-
-      // Seek
-      seek.addEventListener('input', () => {
-        if (audio.duration) {
-          audio.currentTime = (seek.value / 100) * audio.duration;
-          prog.style.width = seek.value + '%';
-        }
-      });
-
-      // Metadata via jsmediatags if available
-      const dataCover = card.getAttribute('data-cover');
-      const applyCover = (srcUrl) => {
-        if (!srcUrl) return;
-        coverImg.src = srcUrl;
-        coverImg.style.display = 'block';
-        coverImg.onload = () => { coverFallback.style.display = 'none'; };
-      };
-
-      if (dataCover) {
-        applyCover(dataCover);
-      } else if (window.jsmediatags && src) {
-        try {
-          window.jsmediatags.read(src, {
-            onSuccess: function(tag) {
-              const tags = tag.tags || {};
-              if (tags.title && !card.getAttribute('data-title')) {
-                title = tags.title;
-                titleEl.textContent = title;
-                coverFallback.textContent = initials(title);
-              }
-              if (tags.artist) {
-                artist = tags.artist;
-                artistEl.textContent = artist;
-              }
-              const pic = tags.picture;
-              if (pic && pic.data && pic.data.length) {
-                const byteArray = new Uint8Array(pic.data);
-                let binary = '';
-                for (let i = 0; i < byteArray.length; i++) {
-                  binary += String.fromCharCode(byteArray[i]);
-                }
-                const base64 = btoa(binary);
-                applyCover(`data:${pic.format};base64,${base64}`);
-              }
-            },
-            onError: function() { /* silent fallback */ }
-          });
-        } catch (e) { /* ignore */ }
-      }
-
-      // Error state
-      audio.addEventListener('error', () => {
-        card.classList.add('unavailable');
-        titleEl.textContent = `${title} (missing)`;
-      });
-    });
-  })();
   </script>
 </body>
 
-</html>
+</html> 
 
 
 
