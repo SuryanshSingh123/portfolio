@@ -4,139 +4,263 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Portfolio</title>
+
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=IBM+Plex+Mono&family=JetBrains+Mono&family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <nav>
-    <ul class="tabs">
-      <li class="tab active" data-tab="about">About Me</li>
-      <li class="tab" data-tab="projects">Projects</li>
-      <li class="tab" data-tab="music">Music</li>
-      <li class="tab" data-tab="logs">Logs</li>
-      <li class="tab" data-tab="contact">Contact</li>
-    </ul>
+  <div class="bg" aria-hidden="true">
+    <div class="bg__vignette"></div>
+    <div class="bg__grain"></div>
+    <div class="bg__grid"></div>
+    <div class="bg__spotlight"></div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="nav__brand" title="Home">
+        <span class="nav__dot"></span>
+        <span class="nav__brandText">Suryansh</span>
+      </div>
+
+      <ul class="tabs" role="tablist" aria-label="Sections">
+        <li class="tab active" role="tab" aria-selected="true" tabindex="0" data-tab="about">About</li>
+        <li class="tab" role="tab" aria-selected="false" tabindex="0" data-tab="projects">Projects</li>
+        <li class="tab" role="tab" aria-selected="false" tabindex="0" data-tab="music">Music</li>
+        <li class="tab" role="tab" aria-selected="false" tabindex="0" data-tab="logs">Logs</li>
+        <li class="tab" role="tab" aria-selected="false" tabindex="0" data-tab="contact">Contact</li>
+      </ul>
+
+      <div class="nav__hint">Tab / click</div>
+    </div>
   </nav>
-  <header class="header">
-    <div class="container">
-      <h1>Hi, I'm Suryansh</h1>
-      <p>Student | MIT aspirant</p>
+
+  <header class="header" id="top">
+    <div class="container hero">
+      <div class="hero__panel">
+        <h1 class="hero__title">Hi, I'm Suryansh</h1>
+        <p class="hero__subtitle">Student | Chronically Online</Wannabe-Honest></p>
+
+        <div class="hero__meta">
+          <span class="pill">Weeb</span>
+          <span class="pill">"Vibe Coder"</span>
+          <span class="pill">Barely Free</span>
+        </div>
+      </div>
+
+      <div class="hero__cardStack" aria-hidden="true">
+        <div class="stackCard stackCard--back"></div>
+        <div class="stackCard stackCard--mid"></div>
+        <div class="stackCard stackCard--front">
+          <img class="stackImg"src="image.jpg"/>
+        </div>
+      </div>
     </div>
   </header>
+
   <main id="main">
-    <div class="background-words"></div>
-  <section id="about" class="tab-content active">
-    <div class="container">
-      <h2>About Me</h2>
-      <br>
-      <p>I'm a 10th grader from India, learning game development with some experience in basic programming and making 3d environments.
-      Mostly self-taught, mostly full of tutorial hells.
-      Some languages I know (just on surface level) are Python, C, C++, Java, HTML, CSS, JS, and most recently, GD script.
-      As of now, I am mostly involved in academics and college prep.
-      I still have a plenty of ideas stored regarding game development and I am gradually working towards them.
-      Aside from technology, I have some other interests like piano, or cooking as well.
-      The college I'm aiming for is MIT, something that is definitely going to be hard.
-      On that path, I am preparing for the SAT currently.
-      A lot of hopes and dreams for my aspirations and (hopefully),<br> I'll make it.
-      </p>
-    </div>
-  </section>
+    <section id="about" class="tab-content active" role="tabpanel" aria-labelledby="about-tab">
+      <div class="container">
+        <div class="panel">
+          <div class="panel__header">
+            <h2>About Me</h2>
+            <div class="panel__line"></div>
+          </div>
 
-  <section id="projects" class="tab-content">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="project-list">
-        <div class="project">
-          <h3>Project One</h3>
-          <p>A portfolio I made when I was around 10(it was worse than this one)</p>
-        </div>
-        <br><br>
-        <div class="project">
-          <h3>Project Two, and many more</h3>
-          <p>A collection of old repositories on github I made when I was 11, mostly containg html css and js(its not that useful just basic stuff and normal ideas)</p>
-        </div>
-        <br><br>
-        <div class="project">
-          <h3>Project Three</h3>
-          <p>Not really a "project", but some C files I started with in CS50 by harvard when I was 13(just a part of the course is on my github)</p>
-        </div>
-        <br><br>
-        <div class="project">
-          <h3>Project Four</h3>
-          <p>A working download manager in Java I made when I was 13, while referring to a book that taught Java(Of course no one would use my manager and it had been replicated 100 times, but it was still an accomplishment for me)</p>
-        </div>
-        <br><br>
-        <div class="project">
-          <h3>Project Five</h3>
-          <p>Mostly lost game projects, both 2d and 3d, but it was all tutorial garbage. I'm making one on my own now, so that's the big project 5</p>
-        </div>
-        <div class="project">
-          <h3>Honorable Mention</h3>
-          <p>This webpage itself is one of my best works(yes, thats how bad I usually am)</p>
+          <p class="lead">
+            I'm a 11th grader from North India, trying to learn AI automation and Machine learning with some experience in basic, very basic programming.
+            Mostly self-taught, mostly full of tutorial hells.
+            Some languages I know (just on surface level) are Python, C, C++, Java, HTML, CSS, JS, and most recently, GD script.
+            As of now, I am mostly involved in academics and college prep.
+            Currently, I'm looking forward to partake in courses and improve my skillset.
+            I use arch with hyprland btw.
+            Aside from technology, I have some other interests like piano, writing emo high school fictions, cooking, and many more.
+            <br><br><br>
+            I am going to IIT Jammu for a Summer School 6-day course in Python and AI Automation(1 June - 6 June).
+            I look forward to make out some projects during that course, and also to be more competent for future ideas.
+            I yet have to get more official work done for my profile, but some of my achievments are:<br><br>
+            1. Getting a score of 1380 in SAT (2025)<br><br>
+            2. Completing a 144-hour course in UI/UX, Web dev, Machine learning (Computer Vision and NLP primarily) by Whitehat Jr. (2021-2022)<br><br>
+            3. Completing a beginner course in Python (2024, GUVI)<br><br>
+            4. Zonal gold medal of distinction in International Computer Science Olympiad by Science Olympiad Foundation (2024)<br><br>
+            5. Two school level gold medals in International English Olympiad by Science Olympiad Foundation (2017, 2025)<br><br>
+            <br><br><br>
+            Things I want to add on to this list are:<br><br>
+            1. Getting an applicable score in IOQM<br><br>
+            2. Completing the upcoming course in IIT Jammu<br><br>
+            3. Getting a good score in JEE Mains (Recent Mock Score: 215)<br><br>
+            4. Acquiring the MEXT COT scholarship<br><br>
+            5. Getting my novel published (drafting in progress)<br><br>
+            6. Qualifying JLPT N5 in December<br><br>
+            <br><br><br>
+            I will never lie to anyone again, and I'll do my best to become a better person. It is, after all, one of the major goals in my growth for the upcoming years.
+            <br>
+            Thank You
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <section id="projects" class="tab-content" role="tabpanel">
+      <div class="container">
+        <div class="panel">
+          <div class="panel__header">
+            <h2>Projects</h2>
+            <div class="panel__line"></div>
+          </div>
 
-<section id="music" class="tab-content">
-  <div class="container">
-    <h2>Music</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>Project One</h3>
+              <p>A portfolio I made when I was around 10(it was worse than this one)</p>
+            </article>
 
-    <p>Here are a few tracks I vibe to while working on projects:</p>
-    <div class="spotify-embed">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0FcS0Cpz3tK1DLXIzr6iL2?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-    <br><br>
-    <div class="spotify-embed">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6y87Q8nkhHP2YqowavLdPA?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-    <br><br>
-    <div class="spotify-embed">
-     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0G7OpVtCu40XSaISy0PvpD?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-  </div>
-</section>
-  <section id="logs" class="tab-content">
-    <div class="container">
-      <h2>Game Project Log</h2>
-      <div class="log-list">
-        <div class="log">
-          <h3>LOG #1</h3>
-          <p>August 6: Start of development phase</p>
+            <article class="card">
+              <h3>Project Two, and many more</h3>
+              <p>A collection of old repositories on github I made when I was 11, mostly containg html css and js(its not that useful just basic stuff and normal ideas)</p>
+            </article>
+
+            <article class="card">
+              <h3>Project Three</h3>
+              <p>Not really a "project", but some C files I started with in CS50 by harvard when I was 13(just a part of the course is on my github)</p>
+            </article>
+
+            <article class="card">
+              <h3>Project Four</h3>
+              <p>A working download manager in Java I made when I was 13, while referring to a book that taught Java (replicated 100 times, but it taught me a lot).</p>
+            </article>
+
+            <article class="card">
+              <h3>Project Five</h3>
+              <p>Mostly lost game projects, both 2d and 3d, but it was all tutorial garbage. I'm making one on my own now, so that's the big project 5</p>
+            </article>
+
+            <article class="card">
+              <h3>Honorable Mention</h3>
+              <p>This webpage itself is one of my best works (yes, thats how bad I usually am)</p>
+            </article>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section id="contact" class="tab-content">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>Discord: 01_zandatsu</p>
-    </div>
+    </section>
+
+    <section id="music" class="tab-content" role="tabpanel">
+      <div class="container">
+        <div class="panel">
+          <div class="panel__header">
+            <h2>Music</h2>
+            <div class="panel__line"></div>
+          </div>
+
+          <p class="muted">My only playlist: </p>
+
+          <div class="embedList">
+            <div class="embedCard">
+              <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4jfJbWgGCdaaZDLKvN53gX?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="logs" class="tab-content" role="tabpanel">
+      <div class="container">
+        <div class="panel">
+          <div class="panel__header">
+            <h2>Game Project Log</h2>
+            <div class="panel__line"></div>
+          </div>
+
+          <div class="grid grid--logs">
+            <article class="card card--log">
+              <h3>LOG #1</h3>
+              <p>Updating This Website!</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="tab-content" role="tabpanel">
+      <div class="container">
+        <div class="panel">
+          <div class="panel__header">
+            <h2>Contact Me</h2>
+            <div class="panel__line"></div>
+          </div>
+
+          <div class="contactRow">
+            <div class="card card--inline">
+              <h3>Discord</h3>
+              <p><span class="mono">swordsarecoolest</span></p>
+            </div>
+
+            <div class="card card--inline">
+              <h3>Tip</h3>
+              <p class="muted">Click tabs, use keyboard, hover cards. Have a good day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  </section>
+
   <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 Suryansh Singh. All rights reserved.</p>
+    <div class="container footer__inner">
+      <p>&copy; 2026 Suryansh Singh. All rights reserved.</p>
+      <a class="toTop" href="#top">Back to top</a>
     </div>
   </footer>
-<script>
-  const tabs = document.querySelectorAll('.tab');
-  const contents = document.querySelectorAll('.tab-content');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    function setActive(tab) {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+        t.tabIndex = -1;
+      });
       contents.forEach(c => c.classList.remove('active'));
 
       tab.classList.add('active');
-      document.getElementById(tab.dataset.tab).classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      tab.tabIndex = 0;
+
+      const panel = document.getElementById(tab.dataset.tab);
+      panel.classList.add('active');
+      panel.style.animation = 'none';
+      panel.offsetHeight; //refloww
+      panel.style.animation = '';
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => setActive(tab));
+      tab.addEventListener('keydown', (e) => {
+        const idx = [...tabs].indexOf(tab);
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setActive(tab);
+        }
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          tabs[(idx + 1) % tabs.length].focus();
+        }
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          tabs[(idx - 1 + tabs.length) % tabs.length].focus();
+        }
+      });
     });
-  });
+    const stack = document.querySelector('.hero__cardStack');
+    window.addEventListener('mousemove', (e) => {
+      if (!stack) return;
+      const x = (e.clientX / window.innerWidth - 0.5);
+      const y = (e.clientY / window.innerHeight - 0.5);
+      stack.style.setProperty('--rx', String((-y * 6).toFixed(2)) + 'deg');
+      stack.style.setProperty('--ry', String((x * 10).toFixed(2)) + 'deg');
+    }, { passive: true });
   </script>
 </body>
-
-</html> 
-
-
-
+</html>
 
