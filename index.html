@@ -25,11 +25,11 @@
       </div>
 
       <ul class="tabs" role="tablist" aria-label="Sections">
-        <li class="tab active" role="tab" aria-selected="true" tabindex="0" data-tab="about">About</li>
-        <li class="tab" role="tab" aria-selected="false" tabindex="0" data-tab="projects">Projects</li>
-        <li class="tab" role="tab" aria-selected="false" tabindex="0" data-tab="music">Music</li>
-        <li class="tab" role="tab" aria-selected="false" tabindex="0" data-tab="logs">Logs</li>
-        <li class="tab" role="tab" aria-selected="false" tabindex="0" data-tab="contact">Contact</li>
+        <li id="about-tab" class="tab active" role="tab" aria-selected="true" tabindex="0" data-tab="about">About</li>
+        <li id="projects-tab" class="tab" role="tab" aria-selected="false" tabindex="0" data-tab="projects">Projects</li>
+        <li id="music-tab" class="tab" role="tab" aria-selected="false" tabindex="0" data-tab="music">Music</li>
+        <li id="playground-tab" class="tab" role="tab" aria-selected="false" tabindex="0" data-tab="playground">Arch</li>
+        <li id="contact-tab" class="tab" role="tab" aria-selected="false" tabindex="0" data-tab="contact">Contact</li>
       </ul>
 
       <div class="nav__hint">Tab / click</div>
@@ -40,12 +40,12 @@
     <div class="container hero">
       <div class="hero__panel">
         <h1 class="hero__title">Hi, I'm Suryansh</h1>
-        <p class="hero__subtitle">Student | Chronically Online</Wannabe-Honest></p>
+        <p class="hero__subtitle">Reverse Engineering Newbie</p>
 
         <div class="hero__meta">
-          <span class="pill">Weeb</span>
-          <span class="pill">"Vibe Coder"</span>
-          <span class="pill">Barely Free</span>
+          <span class="pill">Barely free</span>
+          <span class="pill">Hates HP Firmware</span>
+          <span class="pill">Need WiFi</span>
         </div>
       </div>
 
@@ -68,39 +68,68 @@
             <div class="panel__line"></div>
           </div>
 
-          <p class="lead">
-            I'm a 11th grader from North India, trying to learn AI automation and Machine learning with some experience in basic, very basic programming.
-            Mostly self-taught, mostly full of tutorial hells.
-            Some languages I know (just on surface level) are Python, C, C++, Java, HTML, CSS, JS, and most recently, GD script.
-            I'm learning Data Science and AI automation right now.
-            Though, as of now, I am mostly involved in academics and college prep.
-            Currently, I'm looking forward to partake in courses and improve my skillset.
-            I use arch with hyprland btw.
-            Aside from technology, I have some other interests like piano, writing emo high school fictions, cooking, and many more.
-            <br><br><br>
-            I yet have to get more official work done for my profile, but some of my achievments are:<br><br>
-            1. Getting a score of 1380 in SAT (2025)<br><br>
-            2. Completing a 144-hour course in UI/UX, Web dev, Machine learning (Computer Vision and NLP primarily) by Whitehat Jr. (2021-2022)<br><br>
-            3. Completing a beginner course in Python (2024, GUVI)<br><br>
-            4. Zonal gold medal of distinction in International Computer Science Olympiad by Science Olympiad Foundation (2024)<br><br>
-            5. Two school level gold medals in International English Olympiad by Science Olympiad Foundation (2017, 2025)<br><br>
-            6. Completing a 30+ hours course in Python and AI Automation at IIT Jammu (2026)<br><br>
-            <br><br><br>
-            Things I want to add on to this list are:<br><br>
-            1. Getting an applicable score in IOQM<br><br>
-            2. Getting a good score in JEE Mains (Recent Mock Score: 215)<br><br>
-            3. Acquiring the MEXT COT scholarship<br><br>
-            4. Getting my novel published (drafting in progress)<br><br>
-            5. Qualifying JLPT N5 in December<br><br>
-            <br><br><br>
-            Feel Good.
-            <br>
-            Thank You
-          </p>
+          <div class="aboutGrid">
+            <div class="aboutCopy">
+              <p class="lead">
+                I'm a 11th grader from North India, mostly self-taught and now much more into low-level work than surface-level app stuff.
+                I like Linux kernel work, operating systems, firmware, ACPI, and the kind of 'research' where you stare at full EC dumps for too long and eventually understand the machine through your eyes.
+                Languages I know on a surface level are Python, C, C++, C#, Java, HTML, CSS, Java/Typescript (React + Next.js), Shell, and most recently, Assembly. I also know some Rust, but not enough to be useful yet.
+                I'm still learning AI automation and machine learning, but the systems side is what grabs me right now.
+                I use Arch + Hyprland btw.
+                Currently, I'm learning about Hypervisors and VMs, while also installing and testing different Linux distros on my laptop(NixOS, Void, Gentoo).
+                Outside of tech, I still do piano, writing, cooking, and other side quests.
+              </p>
+
+              <div class="aboutTimeline">
+                <div class="aboutTimeline__item">
+                  <span class="aboutTimeline__label">Now</span>
+                  <p>Balancing academics, college prep, learning stuff, and the occasional firmware rabbit hole that HP throws me in. (Messed up boot order)</p>
+                </div>
+                <div class="aboutTimeline__item">
+                  <span class="aboutTimeline__label">Next</span>
+                  <p>More kernel work, better tooling, cleaner projects, etc.</p>
+                </div>
+              </div>
+            </div>
+
+            <aside class="aboutSide">
+              <div class="miniStatCard">
+                <span class="miniStatCard__label">Profile Snapshot</span>
+                <strong>Self-taught, unconventional, still fixing things.</strong>
+                <p>Arch + Hyprland, firmware docs, and a lot of unfinished ideas.</p>
+              </div>
+
+              <div class="miniStatGrid">
+                <div class="miniStat">
+                  <span>Focus</span>
+                  <strong>Reverse Engineering</strong>
+                </div>
+                <div class="miniStat">
+                  <span>Side skill</span>
+                  <strong>Writing</strong>
+                </div>
+                <div class="miniStat">
+                  <span>Current mood</span>
+                  <strong>Lazy</strong>
+                </div>
+                <div class="miniStat">
+                  <span>Best trait</span>
+                  <strong>Persistence</strong>
+                </div>
+              </div>
+
+              <div class="miniStatCard miniStatCard--accent">
+                <span class="miniStatCard__label">Achievements</span>
+                <p>
+                  SAT 1380, Olympiad medals, a Python and AI Automation course, and a kernel patch accepted into hp-wmi.c.
+                </p>
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
     </section>
-    <section id="projects" class="tab-content" role="tabpanel">
+    <section id="projects" class="tab-content" role="tabpanel" aria-labelledby="projects-tab">
       <div class="container">
         <div class="panel">
           <div class="panel__header">
@@ -143,7 +172,7 @@
       </div>
     </section>
 
-    <section id="music" class="tab-content" role="tabpanel">
+    <section id="music" class="tab-content" role="tabpanel" aria-labelledby="music-tab">
       <div class="container">
         <div class="panel">
           <div class="panel__header">
@@ -162,32 +191,34 @@
       </div>
     </section>
 
-    <section id="logs" class="tab-content" role="tabpanel">
+    <section id="playground" class="tab-content" role="tabpanel" aria-labelledby="playground-tab">
       <div class="container">
         <div class="panel">
           <div class="panel__header">
-            <h2>Project Log</h2>
+            <h2>Fake-Arch</h2>
             <div class="panel__line"></div>
           </div>
 
-          <div class="grid grid--logs">
-            <article class="card card--log">  
-              <h3>LOG #3</h3>
-              <p>Atlas: Frontend Completed</p>
-            </article>
-            <article class="card card--log">  
-              <h3>LOG #2</h3>
-              <p>Initializing Project Atlas!</p>
-            </article>
-            <article class="card card--log">
-              <h3>LOG #1</h3>
-              <p>Updating This Website!</p>
-            </article>
+          <div class="playgroundShell">
+            <section class="terminalPane">
+              <div class="terminalPane__topbar">
+                <span>bash</span>
+                <span id="terminalClock">--:--</span>
+              </div>
+
+              <div class="terminalOutput" id="terminalOutput" aria-live="polite"></div>
+
+              <form class="terminalInputRow" id="terminalForm">
+                <label class="terminalPrompt" for="terminalInput">suryansh@arch ~ $</label>
+                <input id="terminalInput" class="terminalInput" type="text" autocomplete="off" spellcheck="false" placeholder="Try ls, cd, cat, pwd, tree, whoami, uname -a, date..." />
+                <button class="actionButton terminalButton" type="submit">Run</button>
+              </form>
+            </section>
           </div>
         </div>
       </div>
     </section>
-    <section id="contact" class="tab-content" role="tabpanel">
+    <section id="contact" class="tab-content" role="tabpanel" aria-labelledby="contact-tab">
       <div class="container">
         <div class="panel">
           <div class="panel__header">
@@ -239,6 +270,342 @@
   <script>
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.tab-content');
+    const stack = document.querySelector('.hero__cardStack');
+    const terminalOutput = document.getElementById('terminalOutput');
+    const terminalForm = document.getElementById('terminalForm');
+    const terminalInput = document.getElementById('terminalInput');
+    const terminalClock = document.getElementById('terminalClock');
+
+    const filesystem = {
+      type: 'dir',
+      children: {
+        bin: {
+          type: 'dir',
+          children: {
+            bash: { type: 'file', content: '#!/usr/bin/env bash' },
+            ls: { type: 'file', content: '#!/usr/bin/env bash' },
+            cat: { type: 'file', content: '#!/usr/bin/env bash' }
+          }
+        },
+        etc: {
+          type: 'dir',
+          children: {
+            'os-release': {
+              type: 'file',
+              content: 'NAME="Arch Linux"\nPRETTY_NAME="Arch Linux"\nID=arch\nBUILD_ID=rolling'
+            },
+            pacman: {
+              type: 'dir',
+              children: {
+                mirrorlist: {
+                  type: 'file',
+                  content: 'Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch'
+                }
+              }
+            }
+          }
+        },
+        home: {
+          type: 'dir',
+          children: {
+            suryansh: {
+              type: 'dir',
+              children: {
+                Desktop: { type: 'dir', children: {} },
+                Downloads: { type: 'dir', children: {} },
+                Music: { type: 'dir', children: {} },
+                Pictures: { type: 'dir', children: {} },
+                Projects: { type: 'dir', children: {} },
+                Documents: {
+                  type: 'dir',
+                  children: {
+                    'portfolio-tabs': {
+                      type: 'dir',
+                      children: {
+                        'about.md': {
+                          type: 'file',
+                          content: '# About\n\nKernel contributor, systems nerd, and Arch user.'
+                        },
+                        'projects.md': {
+                          type: 'file',
+                          content: '# Projects\n\nOld builds, practice repos, and this website.'
+                        },
+                        'music.md': {
+                          type: 'file',
+                          content: '# Music\n\nSpotify playlist and background noise.'
+                        },
+                        'arch.md': {
+                          type: 'file',
+                          content: '# Arch\n\nA tiny black CLI shell with ordinary bash commands.'
+                        },
+                        'contact.md': {
+                          type: 'file',
+                          content: '# Contact\n\nDiscord and GitHub links.'
+                        }
+                      }
+                    }
+                  }
+                },
+                'README.txt': {
+                  type: 'file',
+                  content: 'suryansh@arch\nnotes: portfolio / kernel / systems / side quests\nstatus: building'
+                }
+              }
+            }
+          }
+        },
+        var: { type: 'dir', children: {} }
+      }
+    };
+
+    const shellState = {
+      cwd: '/home/suryansh'
+    };
+
+    function getNode(path) {
+      if (path === '/') return filesystem;
+      const parts = path.split('/').filter(Boolean);
+      let node = filesystem;
+      for (const part of parts) {
+        if (!node.children || !node.children[part]) return null;
+        node = node.children[part];
+      }
+      return node;
+    }
+
+    function resolvePath(inputPath) {
+      if (!inputPath || inputPath === '.') return shellState.cwd;
+      const absolute = inputPath.startsWith('/');
+      const base = absolute ? [] : shellState.cwd.split('/').filter(Boolean);
+      const resolved = [...base];
+      inputPath.split('/').filter(Boolean).forEach(segment => {
+        if (segment === '.') return;
+        if (segment === '..') {
+          resolved.pop();
+          return;
+        }
+        resolved.push(segment);
+      });
+      return '/' + resolved.join('/');
+    }
+
+    function appendLine(text, className = '') {
+      const line = document.createElement('div');
+      line.className = ['terminalLine', className].filter(Boolean).join(' ');
+      line.textContent = text;
+      terminalOutput.appendChild(line);
+      terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+
+    function appendBlock(text, className = '') {
+      const block = document.createElement('pre');
+      block.className = ['terminalBlock', className].filter(Boolean).join(' ');
+      block.textContent = text;
+      terminalOutput.appendChild(block);
+      terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+
+    function listDirectory(path) {
+      const node = getNode(path);
+      if (!node || node.type !== 'dir') return null;
+      return Object.entries(node.children || {})
+        .map(([name, child]) => `${child.type === 'dir' ? 'd' : '-'} ${name}`)
+        .join('\n') || '(empty directory)';
+    }
+
+    function treeLines(node, currentPath = '/') {
+      if (!node || node.type !== 'dir') return [];
+      const lines = [];
+      Object.entries(node.children || {}).forEach(([name, child]) => {
+        const nextPath = currentPath === '/' ? `/${name}` : `${currentPath}/${name}`;
+        lines.push(nextPath + (child.type === 'dir' ? '/' : ''));
+        if (child.type === 'dir') {
+          lines.push(...treeLines(child, nextPath));
+        }
+      });
+      return lines;
+    }
+
+    function updateClock() {
+      if (!terminalClock) return;
+      terminalClock.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function hasRmRfFlags(flagArgs) {
+      const flags = new Set();
+
+      for (const arg of flagArgs) {
+        if (!arg || !arg.startsWith('-') || arg === '-' || arg.startsWith('--')) {
+          continue;
+        }
+
+        for (const flag of arg.slice(1)) {
+          flags.add(flag);
+        }
+      }
+
+      return flags.has('r') && flags.has('f');
+    }
+
+    function handleCommand(commandLine) {
+      const trimmed = commandLine.trim();
+      if (!trimmed) return;
+      appendLine(`suryansh@arch ${shellState.cwd} $ ${trimmed}`, 'terminalLine--prompt');
+
+      const [command, ...args] = trimmed.split(/\s+/);
+      const restText = args.join(' ');
+
+      if (command === 'sudo') {
+        if (args[0] === 'rm' && hasRmRfFlags(args.slice(1))) {
+          appendBlock('nuh uh\nthat command is not getting root privileges on this machine.');
+          return;
+        }
+
+        appendBlock([
+          'sudo: nice try.',
+          'this shell is not giving you root today.',
+          'hint: maybe try `whoami` instead.'
+        ].join('\n'));
+        return;
+      }
+
+      if (command === 'rm' && hasRmRfFlags(args)) {
+        appendBlock('nuh uh\nnot deleting anything with that energy.');
+        return;
+      }
+
+      if (command === 'rm' && (args.includes('/') || args.includes('/*') || args.includes('--no-preserve-root'))) {
+        appendBlock('absolutely not.\nthat is a bad life choice.');
+        return;
+      }
+
+      if (command === 'shutdown' || command === 'reboot' || command === 'poweroff') {
+        appendBlock(`${command}: denied\nthis portfolio is staying online.`);
+        return;
+      }
+
+      if (command === 'help') {
+        appendBlock([
+          'help       show commands',
+          'pwd        print current path',
+          'ls [p]     list directory',
+          'tree       show filesystem tree',
+          'cd [p]     change directory',
+          'cat p      print file content',
+          'whoami     print user name',
+          'uname [-a] print system info',
+          'date       print date and time',
+          'hostname   print host name',
+          'neofetch   show arch info',
+          'echo text  print text',
+          'clear      clear terminal'
+        ].join('\n'));
+        return;
+      }
+
+      if (command === 'clear') {
+        terminalOutput.innerHTML = '';
+        return;
+      }
+
+      if (command === 'pwd') {
+        appendLine(shellState.cwd);
+        return;
+      }
+
+      if (command === 'whoami') {
+        appendLine('suryansh');
+        return;
+      }
+
+      if (command === 'hostname') {
+        appendLine('arch-workstation');
+        return;
+      }
+
+      if (command === 'date') {
+        appendLine(new Date().toString());
+        return;
+      }
+
+      if (command === 'uname') {
+        appendLine(args.includes('-a') ? 'Linux arch-workstation 6.x.x-arch1-1 #1 SMP PREEMPT_DYNAMIC x86_64 GNU/Linux' : 'Linux');
+        return;
+      }
+
+      if (command === 'ls') {
+        const targetPath = resolvePath(args[0] || shellState.cwd);
+        const listing = listDirectory(targetPath);
+        if (listing === null) {
+          appendLine(`ls: cannot access '${args[0] || shellState.cwd}': No such file or directory`);
+          return;
+        }
+        appendBlock(listing);
+        return;
+      }
+
+      if (command === 'tree') {
+        appendBlock(treeLines(filesystem).join('\n') || '(empty)');
+        return;
+      }
+
+      if (command === 'cd') {
+        const targetPath = resolvePath(args[0] || '/home/suryansh');
+        const node = getNode(targetPath);
+        if (!node || node.type !== 'dir') {
+          appendLine(`cd: no such file or directory: ${args[0] || ''}`.trim());
+          return;
+        }
+        shellState.cwd = targetPath;
+        appendLine('');
+        return;
+      }
+
+      if (command === 'cat') {
+        if (!args[0]) {
+          appendLine('cat: missing file operand');
+          return;
+        }
+        const targetPath = resolvePath(args[0]);
+        const node = getNode(targetPath);
+        if (!node || node.type !== 'file') {
+          appendLine(`cat: ${args[0]}: No such file`);
+          return;
+        }
+        appendBlock(node.content);
+        return;
+      }
+
+      if (command === 'neofetch') {
+        appendBlock([
+
+          `Terrible neofetch`,
+          '                   -`',
+          '                  .o+`                 suryansh@arch',
+          '                 `ooo/',
+          '                `+oooo:',
+          '               `+oooooo:',
+          '               -+oooooo+:',
+          '             `/:-:++oooo+:',
+          '            `/++++/+++++++:'
+        ].join('\n'));
+        appendBlock([
+          'OS: Arch Linux',
+          'Shell: bash',
+          'WM: Hyprland',
+          'Kernel: Linux',
+          'Status: Sleeping',
+        ].join('\n'));
+        return;
+      }
+
+      if (command === 'echo') {
+        appendLine(restText);
+        return;
+      }
+
+      appendLine(`${command}: command not found`);
+    }
 
     function setActive(tab) {
       tabs.forEach(t => {
@@ -255,7 +622,7 @@
       const panel = document.getElementById(tab.dataset.tab);
       panel.classList.add('active');
       panel.style.animation = 'none';
-      panel.offsetHeight; //refloww
+      panel.offsetHeight;
       panel.style.animation = '';
     }
 
@@ -277,7 +644,16 @@
         }
       });
     });
-    const stack = document.querySelector('.hero__cardStack');
+
+    if (terminalForm) {
+      terminalForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        handleCommand(terminalInput.value);
+        terminalInput.value = '';
+        terminalInput.focus();
+      });
+    }
+
     window.addEventListener('mousemove', (e) => {
       if (!stack) return;
       const x = (e.clientX / window.innerWidth - 0.5);
@@ -285,7 +661,11 @@
       stack.style.setProperty('--rx', String((-y * 6).toFixed(2)) + 'deg');
       stack.style.setProperty('--ry', String((x * 10).toFixed(2)) + 'deg');
     }, { passive: true });
+
+    appendLine('Welcome to the Arch playground. Type help to see commands.');
+    appendLine('Filesystem backed by /arch-fs in the workspace.');
+    updateClock();
+    window.setInterval(updateClock, 30000);
   </script>
 </body>
 </html>
-

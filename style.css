@@ -314,6 +314,86 @@ body{
   line-height: 1.65;
   font-size: 1rem;
 }
+.aboutGrid{
+  margin-top: 12px;
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 16px;
+  align-items:start;
+}
+.aboutCopy{
+  display:grid;
+  gap: 14px;
+}
+.aboutTimeline{
+  display:grid;
+  gap: 12px;
+}
+.aboutTimeline__item,
+.miniStatCard,
+.statusItem{
+  border-radius: var(--radius2);
+  border: 1px solid rgba(255,255,255,.11);
+  background: rgba(255,255,255,.03);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+}
+.aboutTimeline__item{
+  padding: 14px 15px;
+}
+.aboutTimeline__label,
+.miniStatCard__label,
+.statusItem span{
+  display:block;
+  margin-bottom: 7px;
+  color: rgba(255,255,255,.52);
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.aboutTimeline__item p,
+.miniStatCard p{
+  margin:0;
+  color: rgba(255,255,255,.74);
+  line-height: 1.55;
+}
+.aboutSide{
+  display:grid;
+  gap: 12px;
+}
+.miniStatCard{
+  padding: 16px;
+}
+.miniStatCard strong{
+  display:block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+.miniStatGrid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.miniStat{
+  padding: 13px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+}
+.miniStat span{
+  display:block;
+  color: rgba(255,255,255,.56);
+  font-size:.8rem;
+  margin-bottom: 7px;
+}
+.miniStat strong{
+  display:block;
+  font-size: .95rem;
+}
+.miniStatCard--accent{
+  background:
+    radial-gradient(500px 180px at 20% 0%, rgba(255,255,255,.10), transparent 55%),
+    rgba(255,255,255,.04);
+}
 .muted{ color: rgba(255,255,255,.64); }
 
 .grid{
@@ -395,6 +475,269 @@ body{
   background: rgba(255,255,255,.06);
 }
 
+.playgroundShell{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 14px;
+}
+.filesystemPane,
+.terminalPane{
+  border-radius: var(--radius2);
+  border: 1px solid rgba(255,255,255,.08);
+  background: #050505;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.03);
+}
+.filesystemPane{
+  padding: 14px;
+  display:grid;
+  gap: 12px;
+}
+.filesystemPane__topbar,
+.terminalPane__topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.06);
+  background: #090909;
+  padding: 10px 12px;
+  color: rgba(255,255,255,.72);
+  font-size: .86rem;
+}
+.windowDot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.35);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08);
+}
+.filesystemPane__topbar strong,
+.terminalPane__topbar span{
+  font-weight: 600;
+}
+.filesystemMeta{
+  display:flex;
+  justify-content:space-between;
+  gap: 12px;
+  flex-wrap:wrap;
+}
+.filesystemMeta > div{
+  flex: 1 1 150px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.07);
+  background: #080808;
+}
+.filesystemMeta__label{
+  display:block;
+  margin-bottom: 6px;
+  color: rgba(255,255,255,.52);
+  font-size: .76rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.filesystemTree{
+  display:grid;
+  gap: 6px;
+  max-height: 340px;
+  overflow:auto;
+  padding-right: 4px;
+}
+.fsNode{
+  width:100%;
+  text-align:left;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  background: #000;
+  color: rgba(255,255,255,.82);
+  padding: 9px 12px;
+  font: inherit;
+  cursor:pointer;
+  transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+}
+.fsNode:hover{
+  transform: translateX(2px);
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.14);
+}
+.fsNode.is-active{
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+  color: rgba(0,0,0,.92);
+}
+.fsNode.is-dir{ font-weight: 600; }
+.filesystemPreview{
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: #000;
+  padding: 12px;
+}
+.filesystemPreview pre,
+.terminalBlock,
+.terminalLine{
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font: inherit;
+}
+.filesystemPreview pre{
+  margin-top: 8px;
+  color: rgba(255,255,255,.76);
+  line-height: 1.5;
+}
+.terminalPane{
+  padding: 14px;
+  display:grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100%;
+}
+.terminalOutput{
+  min-height: 360px;
+  max-height: 520px;
+  overflow:auto;
+  padding: 12px 4px 8px 2px;
+  display:grid;
+  gap: 10px;
+  background: #000;
+}
+.terminalLine,
+.terminalBlock{
+  color: rgba(255,255,255,.84);
+  line-height: 1.55;
+}
+.terminalLine--prompt{
+  color: rgba(255,255,255,.58);
+}
+.terminalBlock{
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: #080808;
+}
+.terminalInputRow{
+  display:grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items:center;
+  margin-top: 12px;
+}
+.terminalPrompt{
+  color: rgba(255,255,255,.58);
+  font-size: .88rem;
+}
+.terminalInput{
+  width:100%;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: #000;
+  color: var(--ink);
+  padding: 12px 14px;
+  font: inherit;
+  outline:none;
+}
+.terminalInput:focus{
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 0 0 3px rgba(255,255,255,.05);
+}
+.terminalButton{
+  white-space:nowrap;
+}
+
+.playgroundShell{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 14px;
+}
+.playgroundHero{
+  border-radius: var(--radius2);
+  border: 1px solid rgba(255,255,255,.12);
+  background:
+    radial-gradient(500px 260px at 20% 0%, rgba(255,255,255,.08), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  padding: 18px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+}
+.playgroundHero h3{
+  margin: 8px 0 10px;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+.playgroundHero p{
+  margin: 0;
+  color: rgba(255,255,255,.75);
+  line-height: 1.6;
+}
+.playgroundActions{
+  margin-top: 16px;
+  display:flex;
+  flex-wrap:wrap;
+  gap: 10px;
+}
+.actionButton,
+.togglePill{
+  appearance:none;
+  border: 1px solid rgba(255,255,255,.13);
+  background: rgba(255,255,255,.07);
+  color: rgba(255,255,255,.88);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font: inherit;
+  cursor:pointer;
+  transition: transform .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
+}
+.actionButton:hover,
+.togglePill:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,.22);
+  background: rgba(255,255,255,.10);
+}
+.actionButton--ghost{
+  background: transparent;
+}
+.playgroundCards{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.playgroundCard{
+  min-height: 100%;
+}
+.playgroundCard--wide{
+  grid-column: 1 / -1;
+}
+.promptChip{
+  display:inline-flex;
+  align-items:center;
+  min-height: 56px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+}
+.toggleStack{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 10px;
+}
+.togglePill.is-active{
+  color: rgba(0,0,0,.92);
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+}
+.statusBoard{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.statusItem{
+  padding: 14px;
+}
+.statusItem strong{
+  display:block;
+  font-size: 1rem;
+}
+
 .footer{
   padding: 22px 0 34px;
   color: rgba(255,255,255,.55);
@@ -431,6 +774,9 @@ img{ filter: grayscale(100%); }
   .hero{ grid-template-columns: 1fr; }
   .hero__cardStack{ min-height: 160px; }
   .nav__hint{ display:none; }
+  .aboutGrid,
+  .playgroundShell{ grid-template-columns: 1fr; }
+  .terminalOutput{ min-height: 300px; }
 }
 @media (max-width: 680px){
   .nav{ padding: 10px 10px; height: auto; }
@@ -439,6 +785,11 @@ img{ filter: grayscale(100%); }
   .tab{ padding: 8px 10px; }
   .card{ grid-column: span 12; }
   .contactRow .card{ grid-column: span 12; }
+  .miniStatGrid,
+  .playgroundCards,
+  .statusBoard{ grid-template-columns: 1fr; }
+  .terminalInputRow{ grid-template-columns: 1fr; }
+  .terminalPrompt{ font-size: .8rem; }
   .footer__inner{ flex-direction:column; align-items:flex-start; }
 }
 
@@ -454,4 +805,4 @@ img{ filter: grayscale(100%); }
   object-position: center;
   background: #000;
 }
-/*Yes, most of the css was vibe coded*/
+/*Yes, everything is vibe coded at this point*/
